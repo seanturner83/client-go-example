@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"encoding/json"
+	//"encoding/json"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
@@ -36,11 +36,16 @@ func main() {
 	}
 
 	// marshal it to something slightly more readable
-	podsData, err := json.Marshal(pods)
-	if err != nil {
-		panic(err.Error())
-	}
+	//podsData, err := json.Marshal(pods)
+	//if err != nil {
+	//	panic(err.Error())
+	//}
 
 	// just dump it out as json because we weren't asked for anything fancier
-	fmt.Printf("%s\n", podsData)
+	//fmt.Printf("%s\n", podsData)
+
+	// ok make it prettier than that!
+	for _, m := range pods.Items {
+		fmt.Println(m.ObjectMeta.Name, m.ObjectMeta.Namespace)
+	}
 }
