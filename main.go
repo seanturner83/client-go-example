@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 )
 
 func main() {
@@ -55,6 +56,9 @@ func main() {
 			for _, m := range pods.Items {
 				fmt.Println(m.ObjectMeta.Name, m.ObjectMeta.Namespace)
 			}
+
+			// and relax
+			time.Sleep(5 * time.Second)
 		}
 	}()
 	<-done
