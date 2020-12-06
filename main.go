@@ -53,8 +53,9 @@ func main() {
 			//fmt.Printf("%s\n", podsData)
 
 			// ok make it prettier than that!
+			fmt.Printf("\nPods in namespace %s:\n", namespace)
 			for _, m := range pods.Items {
-				fmt.Println(m.ObjectMeta.Name, m.ObjectMeta.Namespace)
+				fmt.Printf("- %s/%s\n", m.ObjectMeta.Namespace, m.ObjectMeta.Name)
 			}
 
 			// and relax
